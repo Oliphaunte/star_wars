@@ -48,17 +48,22 @@ const Planets = (props: iListProps) => {
 
   const residentContent = () => {
     if (residents) {
-      return <ul>
-        {residents.map(resident => (
-          <li key={resident.name}>{resident.name}</li>
-        ))}
-      </ul>
+      return (
+        <>
+          {residents?.length ? <h3 className='font-bold text-black'>People</h3> : <></>}
+
+          <ul>
+            {residents.map(resident => (
+              <li className='text-black' key={resident.name}>{resident.name}</li>
+            ))}
+          </ul>
+        </>)
     }
     else {
       return (
         <div className='flex items-center'>
           <p className="text-gray-600 text-lg mr-2">Loading</p>
-          <div className="animate-ellipsis">
+          <div className="animate-ellipsis text-gray-600">
             <div></div>
             <div></div>
             <div></div>
@@ -72,53 +77,51 @@ const Planets = (props: iListProps) => {
   const modalContent = () => {
     if (activePlanet) {
       return (
-        <div className='w-full max-w-lg'>
-          <span className='flex items-center justify-between capitalize'>
+        <div className='w-full max-w-lg m-auto'>
+          <span className='flex justify-between capitalize text-black'>
             <p>name:</p>
-            <p>{activePlanet.name}</p>
+            <p className='text-right'>{activePlanet.name}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black'>
             <p>diameter:</p>
-            <p>{activePlanet.diameter}</p>
+            <p className='text-right'>{activePlanet.diameter}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black'>
             <p>rotation_period:</p>
-            <p>{activePlanet.rotation_period}</p>
+            <p className='text-right'>{activePlanet.rotation_period}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black'>
             <p>orbital_period:</p>
-            <p>{activePlanet.orbital_period}</p>
+            <p className='text-right'>{activePlanet.orbital_period}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black'>
             <p>gravity:</p>
-            <p>{activePlanet.gravity}</p>
+            <p className='text-right'>{activePlanet.gravity}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black'>
             <p>population:</p>
-            <p>{Intl.NumberFormat().format(+activePlanet.population)}</p>
+            <p className='text-right'>{Intl.NumberFormat().format(+activePlanet.population)}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black'>
             <p>climate:</p>
-            <p>{activePlanet.climate}</p>
+            <p className='text-right'>{activePlanet.climate}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black'>
             <p>terrain:</p>
-            <p>{activePlanet.terrain}</p>
+            <p className='text-right ml-12'>{activePlanet.terrain}</p>
           </span>
 
-          <span className='flex items-center justify-between capitalize'>
+          <span className='flex justify-between capitalize text-black mb-6'>
             <p>surface_water:</p>
-            <p>{activePlanet.surface_water}</p>
+            <p className='text-right'>{activePlanet.surface_water}</p>
           </span>
-
-          <h3 className='font-bold mt-6'>People</h3>
 
           {residentContent()}
         </div>
