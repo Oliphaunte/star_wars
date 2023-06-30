@@ -18,10 +18,51 @@
 
 body {
   color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
+  background: linear-gradient(to bottom,
       transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+      rgb(var(--background-end-rgb))) rgb(var(--background-start-rgb));
+}
+
+@keyframes ellipsis {
+  0% {
+    content: '.';
+    opacity: 0;
+  }
+
+  25% {
+    content: '..';
+    opacity: 1;
+  }
+
+  50% {
+    content: '...';
+    opacity: 1;
+  }
+
+  75% {
+    content: '....';
+    opacity: 1;
+  }
+}
+
+.animate-ellipsis div {
+  display: inline-block;
+  width: 0.5rem;
+  height: 0.5rem;
+  margin-right: 0.25rem;
+  background-color: currentColor;
+  border-radius: 50%;
+  animation: ellipsis 1s infinite;
+}
+
+.animate-ellipsis div:nth-child(2) {
+  animation-delay: 0.25s;
+}
+
+.animate-ellipsis div:nth-child(3) {
+  animation-delay: 0.5s;
+}
+
+.animate-ellipsis div:nth-child(4) {
+  animation-delay: 0.75s;
 }
